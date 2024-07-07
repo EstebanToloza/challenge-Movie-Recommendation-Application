@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface MovieState {
   searchResults: any[];
   currentMovie: any | null;
+  similarMovies: any[];
 }
 
 const initialState: MovieState = {
   searchResults: [],
   currentMovie: null,
+  similarMovies: [],
 };
 
 export const movieSlice = createSlice({
@@ -20,9 +22,12 @@ export const movieSlice = createSlice({
     setCurrentMovie: (state, action: PayloadAction<any>) => {
       state.currentMovie = action.payload;
     },
+    setSimilarMovies: (state, action: PayloadAction<any[]>) => {
+      state.similarMovies = action.payload;
+    },
   },
 });
 
-export const { setSearchResults, setCurrentMovie } = movieSlice.actions;
+export const { setSearchResults, setCurrentMovie, setSimilarMovies } = movieSlice.actions;
 
 export default movieSlice.reducer;

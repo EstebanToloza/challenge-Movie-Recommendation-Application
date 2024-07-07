@@ -1,0 +1,33 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
+interface MovieCardProps {
+  movie: {
+    id: number;
+    title: string;
+    poster_path: string;
+    release_date: string;
+  }
+}
+
+export default function MovieCard({ movie }: MovieCardProps) {
+  return (
+    <Link href={`/movie/${movie.id}`}>
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105">
+        <div className="relative h-64">
+          <Image
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-t-lg"
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="font-bold text-lg mb-2 truncate">{movie.title}</h3>
+          <p className="text-gray-600">{new Date(movie.release_date).getFullYear()}</p>
+        </div>
+      </div>
+    </Link>
+  )
+}
