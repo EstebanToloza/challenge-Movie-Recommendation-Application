@@ -17,8 +17,13 @@ body {
 
 h1,
 h2,
+h3,
 p {
     color: var(--text-light-color);
+}
+
+.card-title {
+    color: #080f28;
 }
 
 @layer utilities {

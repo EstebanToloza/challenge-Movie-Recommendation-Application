@@ -2,17 +2,24 @@
 
 import { useState } from 'react'
 import { useAppDispatch } from '../store/hooks'
-import { setSearchResults } from '../store/movieSlice'
 import { searchMovies } from '../api/tmdb'
+import { setSearchResults, setSearchMessage } from '../store/movieSlice'
 
 export default function SearchBar() {
   const [query, setQuery] = useState('')
   const dispatch = useAppDispatch()
 
-  const handleSearch = async (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const results = await searchMovies(query)
-    dispatch(setSearchResults(results))
+    if (query.trim()) {
+      const results = await searchMovies(query)
+      dispatch(setSearchResults(results))
+      if (results.length === 0) {
+        dispatch(setSearchMessage("No se han encontrado coincidencias. Puedes explorar las películas destacadas de esta semana."))
+      } else {
+        dispatch(setSearchMessage(""))
+      }
+    }
   }
 
   return (

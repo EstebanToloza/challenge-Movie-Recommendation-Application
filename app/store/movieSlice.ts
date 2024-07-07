@@ -4,12 +4,14 @@ interface MovieState {
   searchResults: any[];
   currentMovie: any | null;
   similarMovies: any[];
+  searchMessage: string
 }
 
 const initialState: MovieState = {
   searchResults: [],
   currentMovie: null,
   similarMovies: [],
+  searchMessage: ''
 };
 
 export const movieSlice = createSlice({
@@ -25,9 +27,12 @@ export const movieSlice = createSlice({
     setSimilarMovies: (state, action: PayloadAction<any[]>) => {
       state.similarMovies = action.payload;
     },
+    setSearchMessage: (state, action: PayloadAction<string>) => {
+      state.searchMessage = action.payload
+    }
   },
 });
 
-export const { setSearchResults, setCurrentMovie, setSimilarMovies } = movieSlice.actions;
+export const { setSearchResults, setCurrentMovie, setSimilarMovies, setSearchMessage } = movieSlice.actions;
 
 export default movieSlice.reducer;

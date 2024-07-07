@@ -39,9 +39,24 @@ export const getSimilarMovies = async (movieId: number) => {
         api_key: API_KEY,
       },
     });
-    return response.data.results.slice(0, 3); // Limitamos a 3 películas similares
+    return response.data.results.slice(0, 3); 
   } catch (error) {
     console.error('Error fetching similar movies:', error);
+    return [];
+  }
+};
+
+export const getPopularMovies = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/movie/popular`, {
+      params: {
+        api_key: API_KEY,
+        language: 'es-ES', 
+      },
+    });
+    return response.data.results.slice(0, 8); 
+  } catch (error) {
+    console.error('Error fetching popular movies:', error);
     return [];
   }
 };
