@@ -7,6 +7,8 @@ import { setCurrentMovie, setSimilarMovies } from '@/app/store/movieSlice'
 import { getMovieDetails, getSimilarMovies } from '@/app/api/tmdb'
 import Image from 'next/image'
 import Link from 'next/link'
+import MovieCard from '@/app/components/MovieCard'
+
 
 export default function MovieDetails() {
   const { id } = useParams()
@@ -52,22 +54,7 @@ export default function MovieDetails() {
       <h2 className="text-2xl font-bold mt-8 mb-4">Películas Similares</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {similarMovies.map((similar) => (
-          <Link href={`/movie/${similar.id}`} key={similar.id}>
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer">
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${similar.poster_path}`}
-                alt={similar.title}
-                width={500}
-                height={750}
-                layout="responsive"
-                className="rounded-t-lg"
-              />
-              <div className="p-4">
-                <h3 className="font-bold text-lg mb-2 truncate">{similar.title}</h3>
-                <p className="text-sm text-gray-600">{new Date(similar.release_date).getFullYear()}</p>
-              </div>
-            </div>
-          </Link>
+          <MovieCard key={similar.id} movie={similar} />
         ))}
       </div>
     </div>

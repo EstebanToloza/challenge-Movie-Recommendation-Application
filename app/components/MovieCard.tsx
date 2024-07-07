@@ -12,8 +12,8 @@ interface MovieCardProps {
 
 export default function MovieCard({ movie }: MovieCardProps) {
   return (
-    <Link href={`/movie/${movie.id}`}>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105">
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-200 ease-in-out hover:scale-105">
+      <Link href={`/movie/${movie.id}`} className="block">
         <div className="relative h-64">
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -24,10 +24,13 @@ export default function MovieCard({ movie }: MovieCardProps) {
           />
         </div>
         <div className="p-4">
-          <h3 className="font-bold text-lg mb-2 truncate">{movie.title}</h3>
-          <p className="text-gray-600">{new Date(movie.release_date).getFullYear()}</p>
+          <h3 className="font-bold text-lg mb-2 truncate hover:text-blue-500">{movie.title}</h3>
+          <p className="text-gray-600 mb-4">{new Date(movie.release_date).getFullYear()}</p>
+          <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Ver detalles
+          </button>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   )
 }
