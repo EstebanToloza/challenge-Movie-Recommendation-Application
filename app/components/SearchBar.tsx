@@ -16,7 +16,7 @@ export default function SearchBar() {
   }
 
   return (
-    <form onSubmit={handleSearch} className="flex gap-2">
+    <form onSubmit={handleSearch} className="flex mb-5">
       <input
         type="text"
         value={query}
