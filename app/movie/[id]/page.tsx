@@ -8,6 +8,8 @@ import { getMovieDetails, getSimilarMovies } from '@/app/api/tmdb'
 import Image from 'next/image'
 import Link from 'next/link'
 import MovieCard from '@/app/components/MovieCard'
+import { FaArrowLeft } from "react-icons/fa";
+
 
 
 export default function MovieDetails() {
@@ -31,6 +33,11 @@ export default function MovieDetails() {
 
   return (
     <div className="container mx-auto p-4">
+      <button className="btn-bg hover:bg-blue-700 text-white py-2 px-4 rounded-full mb-10">
+        <Link href="/" className="flex gap-2 items-center">
+          <FaArrowLeft /> Regresar a la búsqueda
+        </Link>       
+      </button>
       <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/3">

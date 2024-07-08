@@ -26,7 +26,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
         <div className="p-4">
           <h3 className="font-bold text-lg mb-2 truncate hover:text-blue-500 card-title">{movie.title}</h3>
           <p className="text-gray-600 mb-4">{new Date(movie.release_date).getFullYear()}</p>
-          <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+          <button className="btn-bg w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
             Ver detalles
           </button>
         </div>

@@ -21,9 +21,15 @@ h3,
 p {
     color: var(--text-light-color);
 }
+.btn-bg {
+    background-color: #007aff !important;
+}
 
 .card-title {
     color: #080f28;
+}
+.movies-grid {
+    max-width: 1100px;
 }
 
 @layer utilities {
