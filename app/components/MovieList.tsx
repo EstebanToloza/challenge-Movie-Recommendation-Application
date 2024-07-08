@@ -15,8 +15,8 @@ interface MovieListProps {
   
 }
 
-
 export default function MovieList({ initialMovies }: MovieListProps){
+  
   const searchResults = useAppSelector((state) => state.movie.searchResults)
   const searchMessage = useAppSelector((state) => state.movie.searchMessage)
   const [movies, setMovies] = useState(initialMovies || [])

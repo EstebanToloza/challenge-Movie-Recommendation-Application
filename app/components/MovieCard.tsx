@@ -11,7 +11,7 @@ interface MovieCardProps {
 }
 
 export default function MovieCard({ movie }: MovieCardProps) {
-  console.log(movie.release_date)
+  //console.log(movie.release_date)
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-200 ease-in-out hover:scale-105">
       <Link href={`/movie/${movie.id}`} className="block">
