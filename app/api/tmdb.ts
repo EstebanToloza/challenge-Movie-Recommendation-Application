@@ -9,6 +9,7 @@ export const searchMovies = async (query: string) => {
       params: {
         api_key: API_KEY,
         query: query,
+        language: 'es-ES', 
       },
     });
     return response.data.results;
@@ -23,6 +24,7 @@ export const getMovieDetails = async (movieId: number) => {
     const response = await axios.get(`${BASE_URL}/movie/${movieId}`, {
       params: {
         api_key: API_KEY,
+        language: 'es-ES'
       },
     });
     return response.data;
@@ -37,6 +39,7 @@ export const getSimilarMovies = async (movieId: number) => {
     const response = await axios.get(`${BASE_URL}/movie/${movieId}/similar`, {
       params: {
         api_key: API_KEY,
+        language: 'es-ES', 
       },
     });
     return response.data.results.slice(0, 3); 
