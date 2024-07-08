@@ -1,6 +1,6 @@
 import { Providers } from './Providers'
+import NavBar from './components/NavBar'
 import './globals.css'
-
 
 export default function RootLayout({
   children,
@@ -9,8 +9,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >
-        <Providers>{children}</Providers>
+      <body /* className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" */>
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
       </body>
     </html>
   )

@@ -1,28 +1,44 @@
 @tailwind base;
 @tailwind components;
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
-:root {
-    --text-light-color: #fff;
+/* :root {
+    --text-color: #080f28;
+    --background-color: #ffffff;
+    --btn-bg-color: #007aff;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-    }
+.dark {
+    --text-color: #ffffff;
+    --background-color: #080f28;
+    --btn-bg-color: #007aff;
+} */
+
+:root {
+    --text-color: #ffffff;
+    --background-color: #080f28;
+    --btn-bg-color: #007aff;
 }
 
 body {
-    background: #080f28;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
+nav {
+    border-bottom: 1px solid #fff;
+}
 h1,
 h2,
 h3,
 p {
-    color: var(--text-light-color);
+    color: var(--text-color);
 }
+
 .btn-bg {
-    background-color: #007aff !important;
+    background-color: var(--btn-bg-color) !important;
 }
 
 .card-title {
@@ -30,6 +46,14 @@ p {
 }
 .movies-grid {
     max-width: 1100px;
+}
+form input.rounded {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+form button.rounded {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 @layer utilities {
